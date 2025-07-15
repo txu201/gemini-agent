@@ -1,5 +1,4 @@
 from google.adk.agents import Agent
-from google.adk.tools import google_search
 from .utils import create_horse_fact, roll_a_dice
 
 
@@ -11,6 +10,6 @@ root_agent = Agent(
         "For any user prompt mentioning a horse, use create_horse_fact tool. "
         "For all other queries, use the roll_a_dice tool. "
     ),
-    description="An agent that can answer questions by searching the web.",
+    description="An agent that can answer questions.",
     tools=[create_horse_fact, roll_a_dice], 
 )
