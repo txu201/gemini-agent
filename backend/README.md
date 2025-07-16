@@ -16,3 +16,7 @@ now you can run the app via the adk cli
 ```bash
 adk web
 ```
+## testing
+```bash
+uv run pytest src/test.py
+```
