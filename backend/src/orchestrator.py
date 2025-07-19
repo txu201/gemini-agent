@@ -1,6 +1,7 @@
 from google.adk.agents import BaseAgent
-from .agent_search import agent_search
-from .agent import root_agent as custom_agent
+from src.agent_search import agent_search
+from src.agent import custom_tools_agent
+
 
 class SmartOrchestrator(BaseAgent):
     def __init__(self):
@@ -9,7 +10,7 @@ class SmartOrchestrator(BaseAgent):
             description="Routes queries to search-agent or custom-tools agent.",
         )
         self._search = agent_search
-        self._custom = custom_agent
+        self._custom = custom_tools_agent
 
     async def _run_async_impl(self, context):
         if hasattr(context, "parts"):
@@ -27,3 +28,6 @@ class SmartOrchestrator(BaseAgent):
 
         async for event in target.run_async(context):
             yield event
+
+
+root_agent = SmartOrchestrator()
