@@ -45,5 +45,5 @@ curl -X POST http://localhost:8000/invoke \
 Once the server is working properly, run the integration test:
 
 ```bash
-uv run pytest src/integration_test.py
+uv run pytest src/test_integration.py
 ```
